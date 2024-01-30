@@ -1,20 +1,75 @@
 ---
+const pageTitle = "Sobre mi... About me";
+const identity = {
+  firstName: "Amitkaill Armas",
+  country: "Venezuela",
+  occupation: "Desempleado",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
 
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = true;
+const finished = true;
+const goal = 3;
+const colorna = "#156532"
+const fontWeight = "Bold"
+const textCase = "uppercase"
 ---
 
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Sobre mi...</title>
+        <title>{pageTitle}</title>
+        <style define:vars={{colorna, fontWeight,textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill{                
+                font-weight: var(--fontWeight);
+                color:var(--colorna);
+                text-transform: var(--textCase);
+            }
+          </style>
     </head>
     <body>
         <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
-        <h1 >About me - Quien Soy</h1>
-        <p>Mi nombre es <em> Amitkaill Armas </em>, Venezolano, Soy una persona de carácter fuerte y leal, siempre dispuesta a dar lo mejor de mí en cada tarea que emprendo. Mi ética de trabajo es incuestionable y siempre estoy buscando formas de superarme y crecer tanto personal como profesionalmente. Creo firmemente en el valor de la perseverancia y la dedicación, y estoy constantemente buscando oportunidades que me permitan demostrar mi valía. Mi objetivo es ser reconocido por mi trabajo y contribuciones, y estoy dispuesto a dar un paso adelante para alcanzar este objetivo. Estoy convencido de que con la oportunidad correcta, puedo demostrar mi verdadero potencial.</p>        
+        <h1>{pageTitle}</h1>
+        <p>
+            Mi nombre es <em> Amitkaill Armas</em>, Venezolano, Soy una persona
+            de carácter fuerte y leal, siempre dispuesta a dar lo mejor de mí en
+            cada tarea que emprendo. Mi ética de trabajo es incuestionable y
+            siempre estoy buscando formas de superarme y crecer tanto personal
+            como profesionalmente. Creo firmemente en el valor de la
+            perseverancia y la dedicación, y estoy constantemente buscando
+            oportunidades que me permitan demostrar mi valía. Mi objetivo es ser
+            reconocido por mi trabajo y contribuciones, y estoy dispuesto a dar
+            un paso adelante para alcanzar este objetivo. Estoy convencido de
+            que con la oportunidad correcta, puedo demostrar mi verdadero
+            potencial.
+        </p>
+        <p>Here are a few facts about me:</p>
+<ul>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[2]}</li>
+  }
+</ul>
+<p>My skills are:</p>
+<ul>
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
+</ul>
+{happy && <p>I am happy to be learning Astro!</p>}
+
+{finished && <p>I finished this tutorial!</p>}
+
+{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
     </body>
 </html>
