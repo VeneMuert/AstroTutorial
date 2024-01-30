@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.2.6"
+    "astro": "^4.2.6",
+    "quokka-treasure-chest": "^1.0.2",
+    "require": "^2.4.20"
   }
 }
