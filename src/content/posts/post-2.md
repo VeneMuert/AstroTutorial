@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 title: My Second Blog Post
 author: Amitkaill Armas
 description: "After learning some Astro, I couldn't stop!"

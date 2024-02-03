@@ -12,13 +12,14 @@
     border: 0;
     background: none;
   }
-  .sun { fill: rgb(243, 222, 29); }
+  .sun { fill: rgb(235, 40, 40); }
   .moon { fill: transparent; }
 
   :global(.dark) .sun { fill: transparent; }
-  :global(.dark) .moon { fill: rgb(209, 204, 204); }
+  :global(.dark) .moon { fill: rgb(241, 24, 24); }
 </style>
 <script is:inline>
+    document.addEventListener('astro:page-load',() =>{
     const theme = (() => {
       if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
         return localStorage.getItem('theme');
@@ -45,5 +46,13 @@
       localStorage.setItem("theme", isDark ? "dark" : "light");
     }
   
-    document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
-  </script>
+    document.getElementById("themeToggle").addEventListener("click", handleToggleClick);})
+  </script>  
+
+    <script>
+      document.addEventListener('astro:after-swap', () => {
+        localStorage.theme === 'dark'
+        ? document.documentElement.classList.add("dark")
+        : document.documentElement.classList.add("light");
+      });
+    </script>
