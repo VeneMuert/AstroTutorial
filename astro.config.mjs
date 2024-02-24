@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://venemuert.github.io/",
-  base: "/AstroTutorial"
+  site: "https://amitkaillarmas.netlify.app",
+  integrations: [preact()]
 });
